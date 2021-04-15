@@ -63,6 +63,7 @@ class COCOReader(ObjectDetectionReader):
             })
 
         self._image_to_details = {}
+        self.classes = self._filter_classes(self.classes)
         for image in annotations_json['images']:
             self._image_to_details[image['id']] = {
                 'file_name': image['file_name'],
